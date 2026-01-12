@@ -61,7 +61,7 @@ function generate_root_ca {
 
 function set_certificate_info {
   APP=image-registry.apps
-  TYPE=e2
+  TYPE=kub
   SERVER_KEY="$PATH/server/$APP.$NUMBER.$TYPE.$NAME.$DOMAIN.key"
   SERVER_CSR="$PATH/csr/$APP.$NUMBER.$TYPE.$NAME.$DOMAIN.csr"
   SERVER_CRT="$PATH/server/$APP.$NUMBER.$TYPE.$NAME.$DOMAIN.crt"
@@ -70,7 +70,7 @@ function set_certificate_info {
   generate_server_certificate
 
   APP=application-sample
-  TYPE=e2
+  TYPE=kub
   SERVER_KEY="$PATH/server/$APP.$NUMBER.$TYPE.$NAME.$DOMAIN.key"
   SERVER_CSR="$PATH/csr/$APP.$NUMBER.$TYPE.$NAME.$DOMAIN.csr"
   SERVER_CRT="$PATH/server/$APP.$NUMBER.$TYPE.$NAME.$DOMAIN.crt"

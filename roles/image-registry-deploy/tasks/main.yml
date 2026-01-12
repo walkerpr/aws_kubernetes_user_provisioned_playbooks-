@@ -70,7 +70,7 @@
 - name: Create cert directory
   file:
     state: directory
-    path: "/etc/docker/certs.d/services.csa.sample.sample.mil"
+    path: "/etc/docker/certs.d/services.devops.sample.sample.mil"
   delegate_to: localhost
 
 - name: Copy ca certs
@@ -97,9 +97,9 @@
 
 - name: Create Image Registry pull secret
   shell: |
-    export AA_ARTIFACTORY_USERNAME={{ osa_secrets.artifactoryUser }}
-    export AA_ARTIFACTORY_PASSWORD={{ osa_secrets.artifactoryPassword }}
-    kubectl create secret docker-registry image-pull-secret --docker-server="{{ registry_url }}" --docker-username=$AA_ARTIFACTORY_USERNAME --docker-password=$AA_ARTIFACTORY_PASSWORD --namespace docker-registry
+    export ARTIFACTORY_USERNAME={{ devops_secrets.artifactoryUser }}
+    export ARTIFACTORY_PASSWORD={{ devops_secrets.artifactoryPassword }}
+    kubectl create secret docker-registry image-pull-secret --docker-server="{{ registry_url }}" --docker-username=$ARTIFACTORY_USERNAME --docker-password=$ARTIFACTORY_PASSWORD --namespace docker-registry
   run_once: true
 
 

@@ -14,7 +14,7 @@ spec:
    tls:
      mode: PASSTHROUGH
    hosts:
-   - "{{ aa_e2_fqdn }}"
+   - "{{ kub_fqdn }}"
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
@@ -23,14 +23,14 @@ metadata:
  namespace: application-sample
 spec:
  hosts:
- - "{{ aa_e2_fqdn }}"
+ - "{{ kub_fqdn }}"
  gateways:
  - httpd-gateway
  tls:
  - match:
    - port: 443
      sniHosts:
-     - "{{ aa_e2_fqdn }}"
+     - "{{ kub_fqdn }}"
    route:
    - destination:
        host: httpd.application-sample.svc.cluster.local

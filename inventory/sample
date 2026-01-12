@@ -21,7 +21,7 @@ http_ingress_port=32080
 https_ingress_port=32443
 istio_ingress_port=31443
 image_registry_fqdn="image-registry.apps.{{ default_domain }}"
-sample_e2_fqdn="application-sample.apps.{{ default_domain }}"
+sample_kub_fqdn="application-sample.apps.{{ default_domain }}"
 ansible_python_interpreter= /usr/bin/python3
 
 [cp_nodes]

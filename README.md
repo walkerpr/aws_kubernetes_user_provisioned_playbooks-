@@ -19,7 +19,7 @@ Before running the playbooks, ensure you've start a disconnected session by runn
 Prerequisites
 ===============================
 
-Ensure Kubernetes EC2 infrastructure has been deployed.
+Ensure Kubernetes infrastructure has been deployed.
 
 Variables
 ==============================

@@ -16,32 +16,32 @@
 
 - name: Create sample registry certs.d directory
   file:
-    path: "/etc/containerd/certs.d/{{ sample_e2_fqdn }}"
+    path: "/etc/containerd/certs.d/{{ sample_kub_fqdn }}"
     state: directory
     mode: '0755'
 
 - name: Copy over sample cert for containerd
   copy:
-    src: "/opt/k8s-csr/pki/{{ sample_e2_fqdn}}.crt"
-    dest: "/etc/containerd/certs.d/{{ sample_e2_fqdn }}/client.cert"
+    src: "/opt/k8s-csr/pki/{{ sample_kub_fqdn}}.crt"
+    dest: "/etc/containerd/certs.d/{{ sample_kub_fqdn }}/client.cert"
     remote_src: yes
 
 - name: Copy over sample key for contaienerd
   copy:
-    src: "/opt/k8s-csr/pki/{{ sample_e2_fqdn }}.key"
-    dest: "/etc/containerd/certs.d/{{ sample_e2_fqdn }}/client.key"
+    src: "/opt/k8s-csr/pki/{{ sample_kub_fqdn }}.key"
+    dest: "/etc/containerd/certs.d/{{ sample_kub_fqdn }}/client.key"
     remote_src: yes
 
 - name: Copy CA bundle for containerd
   copy:
     src: "/etc/pki/ca-trust/source/anchors/cabundle.crt"
-    dest: "/etc/containerd/certs.d/{{ sample_e2_fqdn }}/ca.crt"
+    dest: "/etc/containerd/certs.d/{{ sample_kub_fqdn }}/ca.crt"
     remote_src: yes
 
-- name: Add E2 sample registry hosts.toml
+- name: Add kub sample registry hosts.toml
   template:
     src: "samplearty.toml.j2"
-    dest: "/etc/containerd/certs.d/{{ sample_e2_fqdn }}/hosts.toml"
+    dest: "/etc/containerd/certs.d/{{ sample_kub_fqdn }}/hosts.toml"
     owner: root
     group: root
     mode: '0644'

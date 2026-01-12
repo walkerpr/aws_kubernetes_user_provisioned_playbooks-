@@ -1,5 +1,5 @@
 ---
 # vars file for image-registry-deploy
-registry_url: "services.csa.sample.sample.mil"
+registry_url: "services.devops.sample.sample.mil"
 docker_config_snippet: "registry-config.json.j2"
 registry_secret_manifest: "registry-secret.yaml.j2"

@@ -33,7 +33,7 @@ http {
 stream {
     map_hash_bucket_size 128;
     map $ssl_preread_server_name $backend {
-        {{ aa_e2_fqdn }} istio_backend;
+        {{ kub_fqdn }} istio_backend;
         default ingress_https_backend;
     }
     upstream kube_api {

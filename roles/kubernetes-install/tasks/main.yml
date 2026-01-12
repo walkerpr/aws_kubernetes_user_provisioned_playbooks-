@@ -101,12 +101,12 @@
 - name: Write kubeadmin file to localhost
   copy:
     content: "{{ kubeadmin.content | b64decode }}"
-    dest: "/home/ec2-user/.kube/deployment{{ deployment_number }}-e2.conf"
+    dest: "/home/ec2-user/.kube/deployment{{ deployment_number }}-kub.conf"
   delegate_to: localhost
 
 - name: Recursively change ownership of a file
   file:
-    path: "/home/ec2-user/.kube/deployment{{ deployment_number }}-e2.conf"
+    path: "/home/ec2-user/.kube/deployment{{ deployment_number }}-kub.conf"
     state: file
     owner: ec2-user
     group: ec2-user
@@ -118,7 +118,7 @@
   delegate_to: localhost
 
 - name: Upload kube file to s3
-  shell: aws s3 cp /home/ec2-user/.kube/deployment{{ deployment_number }}-e2.conf s3://sample-{{ caller_info.stdout }}-kub/deployment{{ deployment_number }}/kube/config
+  shell: aws s3 cp /home/ec2-user/.kube/deployment{{ deployment_number }}-kub.conf s3://sample-{{ caller_info.stdout }}-kub/deployment{{ deployment_number }}/kube/config
   delegate_to: localhost
 
 - name: Load Flannel Networking Interface
