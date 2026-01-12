@@ -47,5 +47,5 @@ This playbook runs through all of the necessary roles to complete the install.
 ```bash
 $ ansible-playbook -i "inventory_files/sample" \
   -e deployment_number=$deploymentNumber \
-  install-kubernetes.yml
+  playbooks/install-kubernetes.yml
 ```
