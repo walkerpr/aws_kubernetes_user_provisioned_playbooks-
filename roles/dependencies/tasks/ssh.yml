@@ -3,12 +3,12 @@
 - name: Get ssh key id
   command: >
     aws ssm get-parameter --name /sample/ec2/sample-deployment-{{ deployment_number }}/ec2/default-key/id --query Parameter.Value --with-decryption --output=text
-  register: keyId
+  register: key_id
 
 - name: Get ssh key
   command: >
-    aws ssm get-parameter --name /ec2/keypair/{{ keyId.stdout }} --query Parameter.Value --with-decryption --output=text
-  register: sshKey
+    aws ssm get-parameter --name /ec2/keypair/{{ key_id.stdout }} --query Parameter.Value --with-decryption --output=text
+  register: ssh_key
 
 - name: Create ssh key file
   template:
@@ -24,10 +24,12 @@
 - name: Get ssh key id
   command: >
     aws ssm get-parameter --name /sample/ec2/sample-central-services/ec2/default-key/id --query Parameter.Value --with-decryption --output=text
-  register: keyId
+  register: key_id
+
 - name: Get ssh key
   shell: |
-    aws ssm get-parameter --name /ec2/keypair/{{ keyId.stdout }}/public  --query Parameter.Value --with-decryption --output=text > ~/.ssh/sample-central-services.key.pub
+    aws ssm get-parameter --name /ec2/keypair/{{ key_id.stdout }}/public  --query Parameter.Value --with-decryption --output=text > ~/.ssh/sample-central-services.key.pub
+
 - name: Get ssh key
   shell: |
-    aws ssm get-parameter --name /ec2/keypair/{{ keyId.stdout }} --query Parameter.Value --with-decryption --output=text > ~/.ssh/sample-central-services.key
+    aws ssm get-parameter --name /ec2/keypair/{{ key_id.stdout }} --query Parameter.Value --with-decryption --output=text > ~/.ssh/sample-central-services.key

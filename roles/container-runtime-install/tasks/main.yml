@@ -41,13 +41,13 @@
 
 - name: Create link for containerd
   file:
-    src:  /usr/local/bin/containerd
+    src: /usr/local/bin/containerd
     dest: /usr/bin/containerd
     state: link
 
 - name: Create link for runc
   file:
-    src:  /usr/local/sbin/runc
+    src: /usr/local/sbin/runc
     dest: /usr/sbin/runc
     state: link
 
