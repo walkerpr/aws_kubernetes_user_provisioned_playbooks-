@@ -1,36 +1,29 @@
-- hosts: localhost
+---
+- name: Install dependencies.
+  hosts: localhost
+  vars:
+    ansible_ssh_private_key_file: "~/.ssh/deployment-{{ deployment_number }}.key"
   tasks:
     - name: Install miscellaneous package dependencies.
       include_role:
         name: dependencies
         tasks_from: packages.yml
-
-- hosts: localhost
-
-  tasks:
     - name: Install aws dependencies.
       include_role:
         name: dependencies
         tasks_from: aws.yml
-
-- hosts: localhost
-  vars:
-    ansible_ssh_private_key_file: "~/.ssh/deployment-{{ deployment_number }}.key"
-  tasks:
     - name: Install ssh dependencies.
       include_role:
         name: dependencies
         tasks_from: ssh.yml
-
-- hosts: localhost
-  tasks:
     - name: Install docker dependencies.
       include_role:
         name: dependencies
         tasks_from: docker.yml
   become: true
 
-- hosts: cp
+- name: Install dependencies (cp).
+  hosts: cp
   tasks:
     - name: Install kubernetes dependencies.
       include_role:

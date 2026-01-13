@@ -1,5 +1,6 @@
 ---
-- hosts: cp
+- name: Installation cleanup.
+  hosts: cp
   become: true
   become_user: root
   roles:

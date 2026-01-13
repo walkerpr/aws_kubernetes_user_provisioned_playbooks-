@@ -1,5 +1,6 @@
 ---
-- hosts: lb
+- name: Install kubernetes lb.
+  hosts: lb
   become: true
   become_user: root
   roles:

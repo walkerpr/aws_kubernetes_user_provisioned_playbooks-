@@ -1,7 +1,7 @@
 ---
-- hosts: cp
+- name: Setup kubernetes cluster services.
+  hosts: cp
   become: true
   become_user: root
   roles:
     - kubernetes-cluster-services
-  

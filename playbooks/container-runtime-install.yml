@@ -1,5 +1,6 @@
 ---
-- hosts: cp
+- name: Install container runtime.
+  hosts: cp
   become: true
   become_user: root
   roles:
