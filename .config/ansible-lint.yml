@@ -12,6 +12,7 @@ profile: basic # min, basic, moderate,safety, shared, production
 exclude_paths:
   - .git/ # implicit unless exclude_paths is defined in config
   - .github/
+  - ansible.cfg
 # quiet: true
 # strict: true
 # verbosity: 1
