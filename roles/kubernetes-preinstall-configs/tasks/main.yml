@@ -20,7 +20,7 @@
     echo "$ID"
   register: os_id
 
-- name: sysctl ipv4_forward kubernetes updates
+- name: Sysctl ipv4_forward kubernetes updates
   ansible.posix.sysctl:
     name: net.ipv4.ip_forward
     value: '1'

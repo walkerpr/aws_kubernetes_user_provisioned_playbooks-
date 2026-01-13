@@ -31,7 +31,7 @@
     src: 99-kubernetes-cri.conf
     dest: /etc/sysctl.d/99-kubernetes-cri.conf
 
-- name: reload sysctl
+- name: Reload sysctl
   command: sysctl --system
   become: true
 
