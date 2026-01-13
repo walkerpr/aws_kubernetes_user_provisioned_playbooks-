@@ -5,6 +5,6 @@
   become_user: root
   tasks:
     - name: Install firewalld.
-      ansible.builtin.include_role:
+      include_role:
         name: kubernetes-install
         tasks_from: firewalld.yml

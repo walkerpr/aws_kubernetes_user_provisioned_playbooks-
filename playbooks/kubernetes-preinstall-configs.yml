@@ -5,10 +5,10 @@
   become_user: root
   tasks:
     - name: Kubernetes pre install configuration.
-      ansible.builtin.include_role:
+      include_role:
         name: kubernetes-preinstall-configs
         tasks_from: main.yml
     - name: Kubernetes pre-installation configuration firewalld.
-      ansible.builtin.include_role:
+      include_role:
         name: kubernetes-preinstall-configs
         tasks_from: firewalld.yml

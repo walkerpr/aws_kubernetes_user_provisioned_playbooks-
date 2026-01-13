@@ -21,7 +21,7 @@
     path: /etc/exports
     line: "/srv/nfs {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}(rw,no_subtree_check,no_root_squash)"
     state: present
-    create: yes
+    create: true
 
 - name: Enable nfs-server service
   systemd_service:
@@ -85,14 +85,14 @@
   unarchive:
     src: "/opt/k9s_Linux_{{ processor_type }}.tar.gz"
     dest: "/opt/"
-    remote_src: yes
+    remote_src: true
 
 - name: Make k9s PATH accessible
   copy:
     src: "/opt/k9s"
     dest: "/usr/local/bin/k9s"
     mode: '0755'
-    remote_src: yes
+    remote_src: true
 
 - name: Helm Install metrics-server
   kubernetes.core.helm:

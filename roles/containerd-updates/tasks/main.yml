@@ -24,19 +24,19 @@
   copy:
     src: "/opt/k8s-csr/pki/{{ sample_kub_fqdn}}.crt"
     dest: "/etc/containerd/certs.d/{{ sample_kub_fqdn }}/client.cert"
-    remote_src: yes
+    remote_src: true
 
 - name: Copy over sample key for contaienerd
   copy:
     src: "/opt/k8s-csr/pki/{{ sample_kub_fqdn }}.key"
     dest: "/etc/containerd/certs.d/{{ sample_kub_fqdn }}/client.key"
-    remote_src: yes
+    remote_src: true
 
 - name: Copy CA bundle for containerd
   copy:
     src: "/etc/pki/ca-trust/source/anchors/cabundle.crt"
     dest: "/etc/containerd/certs.d/{{ sample_kub_fqdn }}/ca.crt"
-    remote_src: yes
+    remote_src: true
 
 - name: Add kub sample registry hosts.toml
   template:

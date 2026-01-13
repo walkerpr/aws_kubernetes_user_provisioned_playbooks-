@@ -16,7 +16,7 @@
   unarchive:
     src: "/opt/containerd-{{ containerd_version }}-linux-{{ processor_type }}.tar.gz"
     dest: /usr/local/
-    remote_src: yes
+    remote_src: true
 
 - name: Create  systemd dir
   file:
@@ -62,7 +62,10 @@
   become: true
 
 - name: Set SystemdCgroup to true in config.toml
-  shell:  sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
+  replace:
+    path: /etc/containerd/config.toml
+    regexp: 'SystemdCgroup = false'
+    replace: 'SystemdCgroup = true'
   become: true
 
 - name: Enable containerd and issue daemon-reload to pick up config changes

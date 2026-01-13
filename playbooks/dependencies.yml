@@ -5,19 +5,19 @@
     ansible_ssh_private_key_file: "~/.ssh/deployment-{{ deployment_number }}.key"
   tasks:
     - name: Install miscellaneous package dependencies.
-      ansible.builtin.include_role:
+      include_role:
         name: dependencies
         tasks_from: packages.yml
     - name: Install aws dependencies.
-      ansible.builtin.include_role:
+      include_role:
         name: dependencies
         tasks_from: aws.yml
     - name: Install ssh dependencies.
-      ansible.builtin.include_role:
+      include_role:
         name: dependencies
         tasks_from: ssh.yml
     - name: Install docker dependencies.
-      ansible.builtin.include_role:
+      include_role:
         name: dependencies
         tasks_from: docker.yml
   become: true
@@ -26,7 +26,7 @@
   hosts: cp
   tasks:
     - name: Install kubernetes dependencies.
-      ansible.builtin.include_role:
+      include_role:
         name: dependencies
         tasks_from: kubernetes.yml
   become: true

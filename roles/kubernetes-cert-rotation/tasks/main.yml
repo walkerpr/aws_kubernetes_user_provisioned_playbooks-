@@ -36,21 +36,21 @@
   copy:
     src: "/home/ec2-user/kubeadmCerts/confCSRs/{{ item.cer }}"
     dest: "/opt/k8s-csr/conf/{{ item.crt }}"
-    remote_src: yes
+    remote_src: true
   loop: "{{k8s_conf_certs}}"
 
 - name: Copy over signed .conf certs
   copy:
     src: "/home/ec2-user/kubeadmCerts/pkiCSRs/{{ item.cer }}"
     dest: "/opt/k8s-csr/pki/{{ item.crt }}"
-    remote_src: yes
+    remote_src: true
   loop: "{{k8s_pki_certs}}"
 
 - name: Copy over signed .conf certs
   copy:
     src: "/home/ec2-user/kubeadmCerts/pkiCSRs/etcd/{{ item.cer }}"
     dest: "/opt/k8s-csr/pki/etcd/{{ item.crt }}"
-    remote_src: yes
+    remote_src: true
   loop: "{{k8s_etcd_certs}}"
 
 - name: Extract Kubelet Key
@@ -72,27 +72,27 @@
   copy:
     src: "/opt/k8s-csr/conf/{{item.file}}"
     dest: "/etc/kubernetes/{{item.file}}"
-    remote_src: yes
+    remote_src: true
   loop: "{{k8s_conf_files}}"
 
 - name: Copy new cert key pairs to /etc/kubernetes/pki
   copy:
     src: "/opt/k8s-csr/pki"
     dest: "/etc/kubernetes"
-    remote_src: yes
+    remote_src: true
 
 - name: Copy CA bundle to /etc/kubernetes/pki
   copy:
     src: "/etc/pki/ca-trust/source/anchors/cabundle.crt"
     dest: "{{ item.crt }}"
-    remote_src: yes
+    remote_src: true
   loop: "{{k8s_ca_certs}}"
 
 - name: Copy kubelet key pair to /var/lib/kubelet
   copy:
     src: "/opt/k8s-csr/conf/{{ item }}"
     dest: "/var/lib/kubelet/pki/{{ item }}"
-    remote_src: yes
+    remote_src: true
   loop:
     - kubelet.crt
     - kubelet.key

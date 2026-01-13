@@ -21,4 +21,4 @@ jobs:
           setup_python: "true"
           python_version: "3.14"
           working_directory: ""
-          requirements_file: ".config/ansible-lint-requirements.yml"
+          requirements_file: ".config/ansible-requirements.yml"
