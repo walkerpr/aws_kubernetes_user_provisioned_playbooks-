@@ -1,10 +1,19 @@
 ---
-    - import_playbook: dependencies.yml
-    - import_playbook: fips.yml
-    - import_playbook: kubernetes-preinstall-configs.yml
-    - import_playbook: container-runtime-install.yml
-    - import_playbook: kubernetes-install.yml
-    - import_playbook: kubernetes-cluster-services.yml
-    - import_playbook: image-registry-deploy.yml
-    - import_playbook: kubernetes-firewalld.yml
-    - import_playbook: kubernetes-install-cleanup.yml
+- name: Dependencies.
+  import_playbook: dependencies.yml
+- name: FIPS.
+  import_playbook: fips.yml
+- name: Pre-install.
+  import_playbook: kubernetes-preinstall-configs.yml
+- name: Runtime install.
+  import_playbook: container-runtime-install.yml
+- name: Kubernetes install
+  import_playbook: kubernetes-install.yml
+- name: Cluster services.
+  import_playbook: kubernetes-cluster-services.yml
+- name: Image registry.
+  import_playbook: image-registry-deploy.yml
+- name: Firewalld.
+  import_playbook: kubernetes-firewalld.yml
+- name: Cleanup.
+  import_playbook: kubernetes-install-cleanup.yml
