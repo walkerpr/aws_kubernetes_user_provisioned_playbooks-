@@ -1,9 +1,9 @@
 ---
 - hosts: cp
-  name: Install firewalld.
   become: true
   become_user: root
   tasks:
-    - include_role:
+    - name: Install firewalld.
+      include_role:
         name: kubernetes-install
         tasks_from: firewalld.yml

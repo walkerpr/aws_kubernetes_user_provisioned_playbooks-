@@ -1,8 +1,8 @@
 - hosts: cp
-  name: Install fips.
   become: true
   become_user: root
   tasks:
-    - include_role:
+    - name: Install fips.
+      include_role:
         name: kubernetes-preinstall-configs
         tasks_from: fips.yml

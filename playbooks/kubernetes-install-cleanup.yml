@@ -1,6 +1,5 @@
 ---
 - hosts: cp
-  name: Post installation cleanup.
   become: true
   become_user: root
   roles:

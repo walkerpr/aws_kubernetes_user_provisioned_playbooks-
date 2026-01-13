@@ -1,6 +1,5 @@
 ---
 - hosts: lb
-  name: Install api-lb.
   become: true
   become_user: root
   roles:

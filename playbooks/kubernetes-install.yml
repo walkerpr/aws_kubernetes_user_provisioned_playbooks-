@@ -1,6 +1,5 @@
 ---
 - hosts: cp
-  name: Install Kubernetes.
   become: true
   become_user: root
   roles:

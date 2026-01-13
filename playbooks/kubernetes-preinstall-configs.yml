@@ -1,16 +1,15 @@
 ---
 - hosts: cp
-  name: Kubernetes pre-installation configuration.
   become: true
   become_user: root
   roles:
     - kubernetes-preinstall-configs
 
 - hosts: cp
-  name: Kubernetes pre-installation configuration firewalld.
   become: true
   become_user: root
   tasks:
-    - include_role:
+    - name: Kubernetes pre-installation configuration firewalld.
+      include_role:
         name: kubernetes-preinstall-configs
         tasks_from: firewalld.yml
