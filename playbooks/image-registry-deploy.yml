@@ -1,5 +1,6 @@
 ---
 - hosts: cp
+  name: Deploy image registry.
   become: true
   become_user: root
   roles:

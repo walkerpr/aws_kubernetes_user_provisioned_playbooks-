@@ -1,4 +1,5 @@
 - hosts: cp
+  name: Install fips.
   become: true
   become_user: root
   tasks:

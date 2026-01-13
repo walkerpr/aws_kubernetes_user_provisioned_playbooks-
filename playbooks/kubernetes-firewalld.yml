@@ -1,5 +1,6 @@
 ---
 - hosts: cp
+  name: Install firewalld.
   become: true
   become_user: root
   tasks:
