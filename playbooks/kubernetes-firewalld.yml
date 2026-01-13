@@ -6,5 +6,5 @@
   tasks:
     - name: Install firewalld.
       include_role:
-        name: kubernetes-install
+        name: kubernetes_install
         tasks_from: firewalld.yml

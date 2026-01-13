@@ -4,4 +4,4 @@
   become: true
   become_user: root
   roles:
-    - kubernetes-cluster-services
+    - kubernetes_cluster_services

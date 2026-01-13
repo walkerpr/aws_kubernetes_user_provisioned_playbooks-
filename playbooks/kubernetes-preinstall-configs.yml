@@ -6,9 +6,9 @@
   tasks:
     - name: Kubernetes pre install configuration.
       include_role:
-        name: kubernetes-preinstall-configs
+        name: kubernetes_preinstall_configs
         tasks_from: main.yml
     - name: Kubernetes pre-installation configuration firewalld.
       include_role:
-        name: kubernetes-preinstall-configs
+        name: kubernetes_preinstall_configs
         tasks_from: firewalld.yml

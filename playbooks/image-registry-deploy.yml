@@ -4,6 +4,6 @@
   become: true
   become_user: root
   roles:
-    - image-registry-deploy
+    - image_registry_deploy
   vars_files:
-    - roles/image-registry-deploy/vars/secrets.yml
+    - roles/image_registry_deploy/vars/secrets.yml

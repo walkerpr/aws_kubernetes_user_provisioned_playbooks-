@@ -4,4 +4,4 @@
   become: true
   become_user: root
   roles:
-    - container-runtime-install
+    - container_runtime_install

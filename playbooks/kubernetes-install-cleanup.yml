@@ -4,4 +4,4 @@
   become: true
   become_user: root
   roles:
-    - kubernetes-install-cleanup
+    - kubernetes_install_cleanup

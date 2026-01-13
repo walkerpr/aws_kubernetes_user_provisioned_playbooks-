@@ -6,5 +6,5 @@
   tasks:
     - name: Install fips.
       include_role:
-        name: kubernetes-preinstall-configs
+        name: kubernetes_preinstall_configs
         tasks_from: fips.yml
