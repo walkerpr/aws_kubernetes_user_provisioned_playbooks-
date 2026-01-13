@@ -23,7 +23,7 @@
     - br_netfilter
 
 - name: Add the br_netfilter module to work across reboot
-  shell: |
+  command: |
     echo br_netfilter > /etc/modules-load.d/br_netfilter.conf
 
 - name: Add sysctl kubernetes rules

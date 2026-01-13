@@ -6,19 +6,19 @@
   tasks:
     - name: Install miscellaneous package dependencies.
       include_role:
-        name: dependencies
+        name: Dependencies
         tasks_from: packages.yml
     - name: Install aws dependencies.
       include_role:
-        name: dependencies
+        name: Dependencies
         tasks_from: aws.yml
     - name: Install ssh dependencies.
       include_role:
-        name: dependencies
+        name: Dependencies
         tasks_from: ssh.yml
     - name: Install docker dependencies.
       include_role:
-        name: dependencies
+        name: Dependencies
         tasks_from: docker.yml
   become: true
 
@@ -27,7 +27,7 @@
   tasks:
     - name: Install kubernetes dependencies.
       include_role:
-        name: dependencies
+        name: Dependencies
         tasks_from: kubernetes.yml
   become: true
   become_user: root

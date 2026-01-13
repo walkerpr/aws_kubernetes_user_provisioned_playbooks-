@@ -30,9 +30,16 @@
     enabled: true
 
 - name: Add graceful shutdown period information to kubelet configuration
-  shell: |
-    sed -i 's/shutdownGracePeriod: 0s/shutdownGracePeriod: 120s/g' /var/lib/kubelet/config.yaml
-    sed -i 's/shutdownGracePeriodCriticalPods: 0s/shutdownGracePeriodCriticalPods: 100s/g' /var/lib/kubelet/config.yaml
+  replace:
+    path:  /var/lib/kubelet/config.yaml
+    regexp: 'shutdownGracePeriod: 0s'
+    replace: 'shutdownGracePeriod: 120s'
+
+- name: Add graceful pod shutdown period information to kubelet configuration
+  replace:
+    path:  /var/lib/kubelet/config.yaml
+    regexp: 'shutdownGracePeriodCriticalPods: 0s'
+    replace: 'shutdownGracePeriodCriticalPods: 120s'
 
 - name: Helm Install Nfs-provisioner for nfs storage class
   kubernetes.core.helm:
