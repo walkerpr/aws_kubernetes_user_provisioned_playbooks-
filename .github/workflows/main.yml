@@ -17,7 +17,7 @@ jobs:
         uses: ansible/ansible-lint@main # or vX.X.X version
         # optional (see below):
         with:
-          args: ""
+          args: "--fix"
           setup_python: "true"
           python_version: "3.14"
           working_directory: ""

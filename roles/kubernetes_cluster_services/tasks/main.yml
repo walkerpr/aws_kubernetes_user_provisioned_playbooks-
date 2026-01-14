@@ -24,7 +24,7 @@
     line: "/srv/nfs {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}(rw,no_subtree_check,no_root_squash)"
     state: present
     create: true
-    node: '0664'
+    mode: '0664'
 
 - name: Enable nfs-server service
   ansible.builtin.systemd_service:
