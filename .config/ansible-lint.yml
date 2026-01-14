@@ -37,8 +37,8 @@ verbosity: 3
 
 use_default_rules: true
 # Load custom rules from this specific folder
-rulesdir:
-  - .config/ansible_lint_rules/
+# rulesdir:
+#   - .config/ansible_lint_rules/
 
 # Ansible-lint is able to recognize and load skip rules stored inside
 # `.ansible-lint-ignore` (or `.config/ansible-lint-ignore.txt`) files.

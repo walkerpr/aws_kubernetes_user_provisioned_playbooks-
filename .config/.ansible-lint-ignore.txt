@@ -1,0 +1,3 @@
+roles/container_runtime_install/vars/main.yml yaml
+roles/kubernetes_cluster_services/tasks/main.yml yaml
+roles/kubernetes_stig_manifest_updates/vars/main.yml yaml
