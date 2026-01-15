@@ -2,3 +2,4 @@ venv/
 .vscode/
 vault_password_file
 *.pem
+.ansible/
