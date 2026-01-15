@@ -1,2 +1,4 @@
-# Ignore vscode directory
+venv/
 .vscode/
+vault_password_file
+*.pem
